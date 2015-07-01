@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EPAPlugins xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	<OS Type="Windows" SleepTimeInSec="15">
+		<Metrics>
+			<Metric>
+				<WilyResourceName>Disk</WilyResourceName>
+				<InstanceNames>C:;_Total</InstanceNames>
+				<WilyMetricName>% Free Space</WilyMetricName>
+				<WilyDataType>LongCounter</WilyDataType>
+				<CounterPath>\LogicalDisk(*)\% Free Space</CounterPath>
+				<Description>Windows disk metric with multiple instances</Description>
+			</Metric>
+			<Metric>
+				<WilyResourceName>Disk</WilyResourceName>
+				<InstanceNames>C:;_Total</InstanceNames>
+				<WilyMetricName>% Disk Read Time</WilyMetricName>
+				<WilyDataType>LongCounter</WilyDataType>
+				<CounterPath>\LogicalDisk(*)\% Disk Read Time</CounterPath>
+				<Description>Windows disk metric with multiple instances</Description>
+			</Metric>			
+				<Metric>
+				<WilyResourceName>Memory</WilyResourceName>
+				<WilyMetricName>Available MBytes (MB)</WilyMetricName>
+				<WilyDataType>LongCounter</WilyDataType>
+				<CounterPath>\Memory\Available Bytes</CounterPath>
+				<Description>Windows Memory metric with multiple instances</Description>
+			</Metric>
+			<Metric>
+				<WilyResourceName>CPU</WilyResourceName>
+				<InstanceNames>0;1</InstanceNames>
+				<WilyMetricName>% Processor Time</WilyMetricName>
+				<WilyDataType>LongCounter</WilyDataType>
+				<CounterPath>\Processor(*)\% Processor Time</CounterPath>
+				<Description>Windows CPU metric with multiple instances</Description>
+			</Metric>
+				<Metric>
+				<WilyResourceName>CPU</WilyResourceName>				
+				<InstanceNames>0;1</InstanceNames>
+				<WilyMetricName>% Idle Time</WilyMetricName>
+				<WilyDataType>LongCounter</WilyDataType>
+				<CounterPath>\Processor(*)\% Idle Time</CounterPath>
+				<Description>Windows CPU metric with multiple instances</Description>
+			</Metric>
+			<Metric>
+				<WilyResourceName>Process Availability</WilyResourceName>				
+				<InstanceNames>firefox;explorer;chrom;java</InstanceNames>
+				<WilyMetricName>Availability</WilyMetricName>
+				<WilyDataType>LongCounter</WilyDataType>
+				<CounterPath>\Process(*)\% Processor Time</CounterPath>
+				<Description>Process Availability</Description>
+			</Metric>
+			<Metric>
+				<WilyResourceName>Network|Bytes</WilyResourceName>				
+				<InstanceNames>Intel[R] 82577LM Gigabit Network Connection</InstanceNames>
+				<WilyMetricName>Network Interface Bytes Total/sec(Per Interval)</WilyMetricName>
+				<WilyDataType>PerIntervalCounter</WilyDataType>
+				<ProcessingType>Delta</ProcessingType>
+				<CounterPath>\Network Interface(*)\Bytes Total/sec</CounterPath>
+				<Description>Windows Network metric with multiple instances</Description>
+			</Metric>
+		</Metrics>
+	</OS>
+</EPAPlugins>
