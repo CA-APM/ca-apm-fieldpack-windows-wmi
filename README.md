@@ -43,6 +43,11 @@ Dependencies
 Installation
 
 standard epa deploy it under c:\EPAgent
+add the following to your agent properties file
+
+introscope.epagent.plugins.stateful.names=POWERSHELL
+introscope.epagent.stateful.POWERSHELL.command=powershell -File C:\\EPAgent\\epaplugins\\windows\\WMI\\WindowsEPAPlugin.ps1
+
 
 Configuration
 
