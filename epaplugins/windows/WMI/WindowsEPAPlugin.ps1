@@ -5,17 +5,18 @@
 ###Include Function File
 ###
 
-. "C:\EPAgent\epaplugins\windows\WMI\WindowsEPAPluginFunctions.ps1"
+. "epaplugins\windows\WMI\WindowsEPAPluginFunctions.ps1"
 
 ###
 ###Global Variables
 ###
 
 
-$FILE_NAME = "C:\EPAgent\epaplugins\windows\WMI\WindowsEPAPlugin.xml"
+$FILE_NAME = "epaplugins\windows\WMI\WindowsEPAPlugin.xml"
 $COUNTER_LIST = New-Object System.Collections.ArrayList
 $WILY_PATH_TO_METRIC_DATA_MAP = @{}
 $WILY_PATH_TO_PREV_VALUE_MAP = @{}
+$WILY_PATH_PREFIX = "PerfMon|"
 
 set-variable -name SLEEP_TIME -value 10 -scope global
 
@@ -57,7 +58,8 @@ while ( $true) {
 						$VALUE = $null
 					}
 					
-				}	
+				}
+					$METRIC_NAME = ($WILY_PATH_PREFIX + $METRIC_NAME)
 					$VALUE = [int]$VALUE * $METRIC_DATA.VALUE_MULTIPLIER
 					publishMetrics $METRIC_NAME $VALUE $METRIC_DATA.WILY_DATA_TYPE
 					
@@ -65,6 +67,7 @@ while ( $true) {
 			}
 		}
 		if ( $METRIC_NAME.IndexOf("Process Availability") -ne -1 -and $AVAILABILTY -ne 1 ) {
+			$METRIC_NAME = ($WILY_PATH_PREFIX + $METRIC_NAME)
 			publishMetrics $METRIC_NAME $AVAILABILITY "LongCounter"
 		}	
 	}
