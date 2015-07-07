@@ -1,46 +1,44 @@
-Field Pack Name (Version)
-NOTE TO CONTRIBUTORS: Items marked in italics provide how-to guidance in creating this file. These comments should be removed once proper content has been added. Other non-italicized text should remain in this file as boilerplate text.
+#Windows WMI Monitoring (1.0)
 
 Description
-Provide a short description of the field pack here. See Markdown Basics for markdown syntax.
+This EPAgent field pack provides a mechanism to collect windows wmi metrics. Its run as a stateful plugin that collect metrics at a regular interval. The plugin is written in Windows Powershell. The agent is deployed under c:\EPAgent
 
 NOTE TO CONTRIBUTORS: Projects are designed to be self documenting in this README file. Rich text (including screenshots) can be found inside the projects themselves (as committed assets). Generally a project overview (including description, sample screenshots, etc.) can be found on the project wiki page at http://github.com/ca-apm/ca-apm-fieldpack-windows-wmi/wiki.
 
-Releases
+##Releases
 
 From time to time, projects may make compiled releases available. While source code is always available for complete build, releases serve as a "tag" (numbered release) and often contain prepared packages that are prebuilt and ready to use. Visit http://github.com/ca-apm/ca-apm-fieldpack-windows-wmi/releases for details.
 
-APM version
+##APM version
 
-APM EM and agent versions the field pack has been tested with.
+9.5,9.6,9.7
 
-Supported third party versions
+##Supported third party versions
 
 Third party versions tested with.
 
-Limitations
+##Limitations
 
 What the field pack will not do.
 
-License
+##License
 
 Link to the license under which this field pack is provided. See Licensing on the CA APM Developer Community.
 
 Please review the LICENSE file in this repository. Licenses may vary by repository. Your download and use of this software constitutes your agreement to this license.
 
-Installation Instructions
-standard plugin installtin
+##Installation Instructions
 
-Prerequisites
+standard plugin installation. Agent Needs to be deployed under C:\EPAgent
 
-Make sure powershell is available and you are able to run.
-You may have to change th epowershell execution policy
+##Prerequisites
 
-Dependencies
+Make sure powershell is available and you are able to run. You may have to change th epowershell execution policy
 
-9.59.6,9.7
+##Dependencies
+EPAgent 9.5,9.6,9.7
 
-Installation
+##Installation
 
 standard epa deploy it under c:\EPAgent
 add the following to your agent properties file
@@ -49,32 +47,33 @@ introscope.epagent.plugins.stateful.names=POWERSHELL
 introscope.epagent.stateful.POWERSHELL.command=powershell -File C:\\EPAgent\\epaplugins\\windows\\WMI\\WindowsEPAPlugin.ps1
 
 
-Configuration
+##Configuration
 
 How to configure the field pack.
 
-Usage Instructions
-None
+#Usage Instructions
+run as regular. If you need to add more metrics pls use epaplugins\windows\WMI\WindowsEPAPlugin.xml
 
-Metric description
+##Metric description
 
-Describe the metrics provided by this field pack or link to third party documentation.
 
-Custom Management Modules
+
+##Custom Management Modules
 
 Dashboards, etc. included with this field pack.
 
-Custom type viewers
+##Custom type viewers
 
 Type viewers included with this field pack. Include agent and metric path that the type viewer matches against.
 
-Name Formatter Replacements
+##Name Formatter Replacements
 
 If the field pack includes name formatters cite all place holders here and what they are replaced with.
 
-Debugging and Troubleshooting
+##Debugging and Troubleshooting
 
-How to debug and troubleshoot the field pack.
+1. look for error msg in the agent log
+2. run the plugin from powershell window and troubleshoot
 
 Support
 
